@@ -12,24 +12,59 @@
 // what to do with that value? put it in a variable
 // How to compare results?
 
+///////////////// SELECTION COMPUTER //////////////////
+
 function getComputerChoice() {
   const randomNumber = Math.random() * 3;
   if (randomNumber >= 0 && randomNumber < 1) {
-    return "Rock";
+    return "rock";
   } else if (randomNumber >= 1 && randomNumber < 2) {
-    return "Paper";
+    return "paper";
   } else {
-    return "Scissors";
+    return "scissors";
   }
 }
 
-console.log(getComputerChoice());
+const selectionComputer = getComputerChoice();
+console.log(selectionComputer);
 
-// function that opens a prompt so the user can input his choice
-// return the value
+/////////////////  SELECTION HUMAN //////////////////
 
 function getHumanChoice() {
   return prompt("Enter Rock, Paper or Scissors...");
 }
 
-console.log(getHumanChoice());
+const selectionHuman = getHumanChoice();
+console.log(selectionHuman);
+
+///////////////// SCORE //////////////////
+
+let humanScore = 0;
+let computerScore = 0;
+
+///////////////// GAME //////////////////
+
+function playRound(humanChoice, computerChoice) {
+  const humanLowerCase = humanChoice.toLowerCase();
+  if (humanLowerCase === "rock" && computerChoice === "paper") {
+    console.log("You lose! Paper beats Rock");
+    computerScore += 1;
+  } else if (humanLowerCase === "rock" && computerChoice === "scissors") {
+    console.log("You win! Rock beats Scissors");
+    humanScore += 1;
+  } else if (humanLowerCase === "paper" && computerChoice === "rock") {
+    console.log("You win! Paper beats Rock");
+    humanScore += 1;
+  } else if (humanLowerCase === "paper" && computerChoice === "scissors") {
+    console.log("You lose! Scissors beats Paper");
+    computerScore += 1;
+  } else if (humanLowerCase === "scissors" && computerChoice === "rock") {
+    console.log("You lose! Rock beats Scissors");
+    computerScore += 1;
+  } else if (humanLowerCase === "scissors" && computerChoice === "paper") {
+    console.log("You win! Scissors beats Paper");
+    humanScore += 1;
+  } else {
+    console.log("It's a tie! Play again");
+  }
+}
