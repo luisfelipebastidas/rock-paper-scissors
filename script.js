@@ -22,4 +22,14 @@ function getComputerChoice() {
     return "Scissors";
   }
 }
+
 console.log(getComputerChoice());
+
+// function that opens a prompt so the user can input his choice
+// return the value
+
+function getHumanChoice() {
+  return prompt("Enter Rock, Paper or Scissors...");
+}
+
+console.log(getHumanChoice());
