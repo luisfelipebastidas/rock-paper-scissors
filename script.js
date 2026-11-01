@@ -1,3 +1,5 @@
+// THIS IS MY FIRST CODE - MY FIRST VERSION
+
 // What's the problem?
 // 1- A function that returns randomly “rock”, “paper” o “scissors”.
 // 2- An input for the user play
@@ -66,6 +68,18 @@ function playGame() {
   for (let i = 1; i <= 5; i++) {
     const selectionComputer = getComputerChoice();
     const selectionHuman = getHumanChoice();
+
+    if (selectionHuman === null) {
+      console.log("Game cancelled.");
+      return;
+    }
+
+    if (!["rock", "paper", "scissors"].includes(selectionHuman.toLowerCase())) {
+      console.log("Invalid choice. Enter rock, paper or scissors.");
+      i -= 1;
+      continue;
+    }
+
     console.log(`ROUND ${i}`);
     console.log(
       `You chose ${selectionHuman} and the computer chose ${selectionComputer}`,
