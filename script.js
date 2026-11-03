@@ -68,7 +68,7 @@ function getGameWinner() {
 
 function displayResult(winner, result) {
   if (winner === "human") {
-    results.textContent = "You won the game";
+    results.textContent = "You won the game!";
   } else if (winner === "computer") {
     results.textContent = "Computer won the game";
   } else {
@@ -77,6 +77,10 @@ function displayResult(winner, result) {
 }
 
 function handleRound(playerSelection) {
+  if (getGameWinner() !== null) {
+    return;
+  }
+
   const computerSelection = getComputerChoice();
   const result = playRound(playerSelection, computerSelection);
   updateScore(result);
