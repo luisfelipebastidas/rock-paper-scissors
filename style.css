@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Departure Mono";
+  src: url("fonts/DepartureMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: #101225;
+  background-image:
+    linear-gradient(rgb(156 123 255 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(156 123 255 / 5%) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: #f6f1ff;
+  font-family: "Departure Mono", monospace;
+  font-size: 22px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+button {
+  min-width: 176px;
+  min-height: 72px;
+  padding: 20px 24px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #d5c8f0;
+  color: #101225;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #060817;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+#rock {
+  background-color: #bce4d5;
+}
+
+#paper {
+  background-color: #d5c8f0;
+}
+
+#scissors {
+  background-color: #f2d0bc;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #060817;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #060817;
+}
+
+button:focus-visible {
+  outline: 3px solid #f6f1ff;
+  outline-offset: 6px;
+}
+
+#results,
+#score {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 20px 24px;
+  border-radius: 8px;
+  background-color: #20243f;
+  box-shadow: 4px 4px 0 #060817;
+}
+
+#results:empty {
+  display: none;
+}
+
+#score {
+  color: #bce4d5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+
+  button:hover,
+  button:active {
+    transform: none;
+  }
+}
