@@ -66,6 +66,24 @@ function getGameWinner() {
   }
 }
 
+function displayResult(winner, result) {
+  if (winner === "human") {
+    results.textContent = "You won the game";
+  } else if (winner === "computer") {
+    results.textContent = "Computer won the game";
+  } else {
+    results.textContent = `Round result: ${result}`;
+  }
+}
+
+function handleRound(playerSelection) {
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
+  updateScore(result);
+  const winner = getGameWinner();
+  displayResult(winner, result);
+}
+
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
@@ -73,22 +91,13 @@ const results = document.querySelector("#results");
 const scoreDisplay = document.querySelector("#score");
 
 rockButton.addEventListener("click", () => {
-  const computerSelection = getComputerChoice();
-  const result = playRound("rock", computerSelection);
-  updateScore(result);
-  results.textContent = `Round result: ${result}`;
+  handleRound("rock");
 });
 
 paperButton.addEventListener("click", () => {
-  const computerSelection = getComputerChoice();
-  const result = playRound("paper", computerSelection);
-  updateScore(result);
-  results.textContent = `Round result: ${result}`;
+  handleRound("paper");
 });
 
 scissorsButton.addEventListener("click", () => {
-  const computerSelection = getComputerChoice();
-  const result = playRound("scissors", computerSelection);
-  updateScore(result);
-  results.textContent = `Round result: ${result}`;
+  handleRound("scissors");
 });
